@@ -49,23 +49,4 @@ public class JsonObject {
                 ", medicalrecords=" + medicalrecords +
                 '}';
     }
-    /*
-
-    ObjectMapper objectMapper = new ObjectMapper();
-    File jsonData = new File("src/main/resources/data.json");
-
-    {
-        try {
-            System.out.println(jsonData);
-            Map<?, ?> map = objectMapper.readValue(jsonData, Map.class);
-            // print map entries
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + "=" + entry.getValue());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-     */
 }

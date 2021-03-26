@@ -47,7 +47,7 @@ public class DataAccess {
         return new ArrayList<>(loadJsonObject().getFirestations());
     }
 
-    public List<Person> getPersons() {
+    public static List<Person> getPersons() {
         return new ArrayList<>(loadJsonObject().getPersons());
     }
 
@@ -107,7 +107,7 @@ public class DataAccess {
         return 0;
     }
 
-    public List<Person> getPersonsByAddress(String address) {
+    public static List<Person> getPersonsByAddress(String address) {
         List<Person> result = new ArrayList<>();
         if (address != null) {
             for (Person person : loadJsonObject().getPersons()) {
@@ -115,8 +115,37 @@ public class DataAccess {
                     result.add(person);
                 }
             }
+            System.out.println(result);
             return result;
         }
         return result;
+    }
+
+    public static Medicalrecords getMedicalrecordsByPerson(Person person) {
+        if (person != null) {
+            for (Medicalrecords medicalrecords : loadJsonObject().getMedicalrecords()) {
+                if (Objects.equals(person.getFirstName(), medicalrecords.getFirstName()) &&
+                        Objects.equals(person.getLastName(), medicalrecords.getLastName())) {
+                    return medicalrecords;
+                }
+            }
+        }
+        return null;
+    }
+
+    public static Person getPersonByFirstAndLastName(String firstName, String lastName) {
+        return getPersons()
+                .stream()
+                .filter(person -> person.getFirstName().equals(firstName) && person.getLastName().equals(lastName))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static Person getPersonMailByCity(String city) {
+        return getPersons()
+                .stream()
+                .filter(person -> person.getCity().equals(city))
+                .findFirst()
+                .orElse(null);
     }
 }

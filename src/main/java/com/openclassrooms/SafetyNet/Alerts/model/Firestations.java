@@ -7,7 +7,11 @@ public class Firestations {
     private int station;
 
     public Firestations() {
+    }
 
+    public Firestations(String address, int station) {
+        this.address = address;
+        this.station = station;
     }
 
     public String getAddress() {
