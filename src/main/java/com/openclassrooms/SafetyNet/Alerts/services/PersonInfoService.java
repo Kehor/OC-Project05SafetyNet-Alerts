@@ -3,12 +3,13 @@ package com.openclassrooms.SafetyNet.Alerts.services;
 import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
 import com.openclassrooms.SafetyNet.Alerts.model.DTO.PersonDetailByAddress;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class personInfo {
-    public personInfo() {
+@Service
+public class PersonInfoService {
+    public PersonInfoService() {
     }
 
     public static List<PersonDetailByAddress> personDetailByFirestationService(String firstName, String lastName){

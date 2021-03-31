@@ -4,11 +4,12 @@ import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
 import com.openclassrooms.SafetyNet.Alerts.model.DTO.PersonByStationNumber;
 import com.openclassrooms.SafetyNet.Alerts.model.Firestations;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public class firestation {
-    public firestation() {
+@Service
+public class FirestationService {
+    public FirestationService() {
     }
 
     public static PersonByStationNumber personByStationNumberService(int stationNb){

@@ -1,34 +1,34 @@
 package com.openclassrooms.SafetyNet.Alerts.services;
 
 import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
-import com.openclassrooms.SafetyNet.Alerts.model.Medicalrecords;
-import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import com.openclassrooms.SafetyNet.Alerts.model.MedicalRecords;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
+public class MedicalRecordService {
 
-public class medicalRecord {
-
-    public medicalRecord() {
+    public MedicalRecordService() {
     }
 
-    public static String medicalRecordPost(Medicalrecords newMedicalrecords){
-        List<Medicalrecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
+    public static String medicalRecordPost(MedicalRecords newMedicalrecords){
+        List<MedicalRecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
         medicalRecordList.add(newMedicalrecords);
         DataAccess.loadJsonObject().setMedicalrecords(medicalRecordList);
         return "new Person add";
     }
 
-    public static String medicalRecordPut(Medicalrecords newMedicalrecords){
+    public static String medicalRecordPut(MedicalRecords newMedicalrecords){
         medicalRecordDelete(newMedicalrecords.getFirstName(),newMedicalrecords.getLastName());
-        List<Medicalrecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
+        List<MedicalRecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
         medicalRecordList.add(newMedicalrecords);
         DataAccess.loadJsonObject().setMedicalrecords(medicalRecordList);
         return "new Person add";
     }
 
     public static String medicalRecordDelete(String firstName, String lastName){
-        List<Medicalrecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
-        Medicalrecords findMedicalrecords = medicalRecordList.stream().filter(medicalRecord -> medicalRecord.getFirstName().equals(firstName) && medicalRecord.getLastName().equals(lastName)).findFirst().orElse(null);
+        List<MedicalRecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
+        MedicalRecords findMedicalrecords = medicalRecordList.stream().filter(medicalRecord -> medicalRecord.getFirstName().equals(firstName) && medicalRecord.getLastName().equals(lastName)).findFirst().orElse(null);
         int index = medicalRecordList.indexOf(findMedicalrecords);
         if(index != -1){
             medicalRecordList.remove(index);

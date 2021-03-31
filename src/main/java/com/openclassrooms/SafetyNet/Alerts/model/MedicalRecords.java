@@ -2,7 +2,7 @@ package com.openclassrooms.SafetyNet.Alerts.model;
 
 import java.util.List;
 
-public class Medicalrecords {
+public class MedicalRecords {
 
     private String firstName;
 
@@ -14,7 +14,7 @@ public class Medicalrecords {
 
     private List<String> allergies;
 
-    public Medicalrecords() {
+    public MedicalRecords() {
 
     }
 

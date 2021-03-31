@@ -3,13 +3,14 @@ package com.openclassrooms.SafetyNet.Alerts.services;
 import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
 import com.openclassrooms.SafetyNet.Alerts.model.DTO.ChildByAddress;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+@Service
+public class ChildAlertService {
 
-public class childAlert {
-
-    public childAlert() {
+    public ChildAlertService() {
     }
 
     public static void setChildByAddress(List<Person> personList, ChildByAddress childByAddress) {

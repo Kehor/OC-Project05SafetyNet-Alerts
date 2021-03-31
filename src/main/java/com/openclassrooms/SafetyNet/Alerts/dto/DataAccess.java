@@ -4,7 +4,7 @@ package com.openclassrooms.SafetyNet.Alerts.dto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.SafetyNet.Alerts.model.Firestations;
 import com.openclassrooms.SafetyNet.Alerts.model.JsonObject;
-import com.openclassrooms.SafetyNet.Alerts.model.Medicalrecords;
+import com.openclassrooms.SafetyNet.Alerts.model.MedicalRecords;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
 
 import java.io.File;
@@ -26,6 +26,9 @@ public class DataAccess {
 
     private static JsonObject jsonobject;
 
+    public void setJsonFile(File jsonFile) {
+        this.jsonFile = jsonFile;
+    }
 
     public static JsonObject loadJsonObject() {
         if (jsonobject != null) {
@@ -51,7 +54,7 @@ public class DataAccess {
         return new ArrayList<>(loadJsonObject().getPersons());
     }
 
-    public List<Medicalrecords> getMedicalrecords() {
+    public List<MedicalRecords> getMedicalrecords() {
         return new ArrayList<>(loadJsonObject().getMedicalrecords());
     }
 
@@ -97,7 +100,7 @@ public class DataAccess {
 
     public static int getAgeFromPerson(Person person) {
         if (person != null) {
-            for (Medicalrecords medicalrecords : loadJsonObject().getMedicalrecords()) {
+            for (MedicalRecords medicalrecords : loadJsonObject().getMedicalrecords()) {
                 if (Objects.equals(person.getFirstName(), medicalrecords.getFirstName()) &&
                         Objects.equals(person.getLastName(), medicalrecords.getLastName())) {
                     return getAgeFromBirthdate(medicalrecords.getBirthdate());
@@ -121,9 +124,9 @@ public class DataAccess {
         return result;
     }
 
-    public static Medicalrecords getMedicalrecordsByPerson(Person person) {
+    public static MedicalRecords getMedicalrecordsByPerson(Person person) {
         if (person != null) {
-            for (Medicalrecords medicalrecords : loadJsonObject().getMedicalrecords()) {
+            for (MedicalRecords medicalrecords : loadJsonObject().getMedicalrecords()) {
                 if (Objects.equals(person.getFirstName(), medicalrecords.getFirstName()) &&
                         Objects.equals(person.getLastName(), medicalrecords.getLastName())) {
                     return medicalrecords;
@@ -145,7 +148,7 @@ public class DataAccess {
         return getPersons()
                 .stream()
                 .filter(person -> person.getCity().equals(city))
-                .findFirst()
+                .findAny()
                 .orElse(null);
     }
 }

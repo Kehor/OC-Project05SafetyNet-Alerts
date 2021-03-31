@@ -2,21 +2,22 @@ package com.openclassrooms.SafetyNet.Alerts.services;
 
 import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public class person {
-    public person() {
+@Service
+public class PersonService {
+    public PersonService() {
     }
 
-    public static String personPost(Person newPerson){
+    public String personPost(Person newPerson){
         List<Person> personList = DataAccess.loadJsonObject().getPersons();
         personList.add(newPerson);
         DataAccess.loadJsonObject().setPersons(personList);
         return "new Person add";
     }
 
-    public static String personPut(Person newPerson){
+    public String personPut(Person newPerson){
         personDelete(newPerson.getFirstName(),newPerson.getLastName());
         List<Person> personList = DataAccess.loadJsonObject().getPersons();
         personList.add(newPerson);
@@ -24,7 +25,7 @@ public class person {
         return "new Person add";
     }
 
-    public static String personDelete(String firstName, String lastName){
+    public String personDelete(String firstName, String lastName){
         List<Person> personList = DataAccess.loadJsonObject().getPersons();
         Person findPerson = personList.stream().filter(person -> person.getFirstName().equals(firstName) && person.getLastName().equals(lastName)).findFirst().orElse(null);
         int index = personList.indexOf(findPerson);

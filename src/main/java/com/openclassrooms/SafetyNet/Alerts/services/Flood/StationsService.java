@@ -1,14 +1,15 @@
-package com.openclassrooms.SafetyNet.Alerts.services.flood;
+package com.openclassrooms.SafetyNet.Alerts.services.Flood;
 
 import com.openclassrooms.SafetyNet.Alerts.dto.DataAccess;
 import com.openclassrooms.SafetyNet.Alerts.model.DTO.PersonDetailByAddress;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class stations {
-    public stations() {
+@Service
+public class StationsService {
+    public StationsService() {
     }
 
     public static List<PersonDetailByAddress> personDetailByFirestationService(List<Integer> stationNb){

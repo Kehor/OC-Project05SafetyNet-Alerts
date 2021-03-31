@@ -10,7 +10,7 @@ public class JsonObject {
 
     private List<Firestations> firestations;
 
-    private List<Medicalrecords> medicalrecords;
+    private List<MedicalRecords> medicalrecords;
 
     public JsonObject() {
 
@@ -32,12 +32,12 @@ public class JsonObject {
         this.firestations = firestations;
     }
 
-    public List<Medicalrecords> getMedicalrecords() {
+    public List<MedicalRecords> getMedicalrecords() {
         return medicalrecords;
     }
 
 
-    public void setMedicalrecords(List<Medicalrecords> medicalrecords) {
+    public void setMedicalrecords(List<MedicalRecords> medicalrecords) {
         this.medicalrecords = medicalrecords;
     }
 
