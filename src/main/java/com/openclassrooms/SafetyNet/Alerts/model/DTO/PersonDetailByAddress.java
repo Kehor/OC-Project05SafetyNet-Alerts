@@ -74,4 +74,16 @@ public class PersonDetailByAddress {
     public void setStationNb(int stationNb) {
         this.stationNb = stationNb;
     }
+
+    @Override
+    public String toString() {
+        return "PersonDetailByAddress{" +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", age=" + age +
+                ", medications=" + medications +
+                ", allergies=" + allergies +
+                ", stationNb=" + stationNb +
+                '}';
+    }
 }

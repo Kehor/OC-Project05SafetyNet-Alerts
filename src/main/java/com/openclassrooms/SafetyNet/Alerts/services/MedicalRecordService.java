@@ -15,6 +15,7 @@ public class MedicalRecordService {
         List<MedicalRecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
         medicalRecordList.add(newMedicalrecords);
         DataAccess.loadJsonObject().setMedicalrecords(medicalRecordList);
+        System.out.print("\n"+newMedicalrecords);
         return "new Person add";
     }
 
@@ -23,6 +24,7 @@ public class MedicalRecordService {
         List<MedicalRecords> medicalRecordList = DataAccess.loadJsonObject().getMedicalrecords();
         medicalRecordList.add(newMedicalrecords);
         DataAccess.loadJsonObject().setMedicalrecords(medicalRecordList);
+        System.out.print("\n"+newMedicalrecords);
         return "new Person add";
     }
 
@@ -33,6 +35,7 @@ public class MedicalRecordService {
         if(index != -1){
             medicalRecordList.remove(index);
             DataAccess.loadJsonObject().setMedicalrecords(medicalRecordList);
+            System.out.print("\n"+findMedicalrecords);
             return "person Deleted";
         }else{
             return firstName + "-" + lastName +" not found";

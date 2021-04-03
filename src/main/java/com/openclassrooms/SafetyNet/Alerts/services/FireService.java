@@ -5,7 +5,9 @@ import com.openclassrooms.SafetyNet.Alerts.model.DTO.PersonDetailByAddress;
 import com.openclassrooms.SafetyNet.Alerts.model.Person;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 @Service
 public class FireService {
@@ -17,6 +19,9 @@ public class FireService {
         List<PersonDetailByAddress> personDetailByAddress = new ArrayList<>();
         for(Person person : personList) {
             personDetailByAddress.add(new PersonDetailByAddress(person.getLastName(),person.getPhone(),DataAccess.getAgeFromPerson(person),DataAccess.getMedicalrecordsByPerson(person).getMedications(),DataAccess.getMedicalrecordsByPerson(person).getAllergies(),DataAccess.getStationByAddressFromPerson(person)));
+        }
+        for (PersonDetailByAddress personDetail : personDetailByAddress){
+            System.out.println(personDetail.toString());
         }
         return personDetailByAddress;
     }

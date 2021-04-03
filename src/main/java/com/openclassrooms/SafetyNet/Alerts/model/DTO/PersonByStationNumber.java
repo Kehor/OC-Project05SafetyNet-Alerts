@@ -40,4 +40,13 @@ public class PersonByStationNumber {
     public void setAdult(int adult) {
         this.adult = adult;
     }
+
+    @Override
+    public String toString() {
+        return "PersonByStationNumber{" +
+                "person=" + person +
+                ", child=" + child +
+                ", adult=" + adult +
+                '}';
+    }
 }

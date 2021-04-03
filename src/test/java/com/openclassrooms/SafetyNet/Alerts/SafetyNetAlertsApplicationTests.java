@@ -184,7 +184,7 @@ class SafetyNetAlertsApplicationTests {
 
 	@Test
 	public void GetFromJsonPersonDetailByFirstAndLastName_thenVerify() {
-		List<PersonDetailByAddress> personDetailByAddress = personInfoService.personDetailByFirestationService("John", "Boyd");
+		List<PersonDetailByAddress> personDetailByAddress = personInfoService.personDetailByNameService("John", "Boyd");
 
 		assertEquals(1, personDetailByAddress.size());
 

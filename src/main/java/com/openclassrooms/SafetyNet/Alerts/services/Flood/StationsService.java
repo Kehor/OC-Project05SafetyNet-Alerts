@@ -20,6 +20,9 @@ public class StationsService {
                 personDetailByAddress.add(new PersonDetailByAddress(person.getLastName(), person.getPhone(), DataAccess.getAgeFromPerson(person), DataAccess.getMedicalrecordsByPerson(person).getMedications(), DataAccess.getMedicalrecordsByPerson(person).getAllergies(), DataAccess.getStationByAddressFromPerson(person)));
             }
         }
+        for (PersonDetailByAddress personDetail : personDetailByAddress){
+            System.out.println(personDetail.toString());
+        }
         return personDetailByAddress;
     }
 }

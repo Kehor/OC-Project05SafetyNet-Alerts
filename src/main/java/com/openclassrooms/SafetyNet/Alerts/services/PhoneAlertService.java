@@ -17,6 +17,7 @@ public class PhoneAlertService {
         for(Person person : personList) {
             phonenumber.add(person.getPhone());
         }
+        System.out.print("Phone number : "+phonenumber);
         return phonenumber;
     }
 }

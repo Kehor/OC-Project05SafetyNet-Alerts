@@ -13,9 +13,14 @@ public class CommunityEmailService {
 
     public static List<String> mailListService(String city){
         List<String> mailList = new ArrayList<>();
-        Person personFind;
-        personFind = DataAccess.getPersonMailByCity(city);
-        mailList.add(personFind.getEmail());
+        List<Person> personFind;
+        personFind = DataAccess.getPersonByCity(city);
+        for (Person person : personFind){
+            if (person != null){
+                mailList.add(person.getEmail());
+                System.out.println(person.getEmail());
+            }
+        }
         return mailList;
     }
 }

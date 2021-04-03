@@ -36,6 +36,7 @@ public class SafetyNetAlertsController {
     public List<JsonObject> jsonObjectList() {
         ArrayList<JsonObject> jsonArrayList = new ArrayList();
         jsonArrayList.add(json);
+        System.out.print(jsonArrayList);
         return jsonArrayList;
     }
 
@@ -72,7 +73,7 @@ public class SafetyNetAlertsController {
 
     @GetMapping(value = "/personInfo")
     public ResponseEntity<List<PersonDetailByAddress>> personDetailByFirestation(@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName) {
-        List<PersonDetailByAddress> personDetailByAddress = personInfoService.personDetailByFirestationService(firstName, lastName);
+        List<PersonDetailByAddress> personDetailByAddress = personInfoService.personDetailByNameService(firstName, lastName);
         return new ResponseEntity<>(personDetailByAddress,HttpStatus.OK);
     }
 

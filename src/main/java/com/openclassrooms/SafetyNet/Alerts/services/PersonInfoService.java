@@ -12,11 +12,13 @@ public class PersonInfoService {
     public PersonInfoService() {
     }
 
-    public static List<PersonDetailByAddress> personDetailByFirestationService(String firstName, String lastName){
+    public static List<PersonDetailByAddress> personDetailByNameService(String firstName, String lastName){
         List<PersonDetailByAddress> personDetailByAddress = new ArrayList<>();
         Person person = DataAccess.getPersonByFirstAndLastName(firstName,lastName);
         personDetailByAddress.add(new PersonDetailByAddress(person.getLastName(), person.getPhone(), DataAccess.getAgeFromPerson(person), DataAccess.getMedicalrecordsByPerson(person).getMedications(), DataAccess.getMedicalrecordsByPerson(person).getAllergies(), DataAccess.getStationByAddressFromPerson(person)));
-
+        for (PersonDetailByAddress personDetail : personDetailByAddress){
+            System.out.println(personDetail.toString());
+        }
         return personDetailByAddress;
     }
 }

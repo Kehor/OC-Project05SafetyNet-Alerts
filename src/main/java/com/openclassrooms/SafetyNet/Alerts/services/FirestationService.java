@@ -21,6 +21,7 @@ public class FirestationService {
                 personByStationNumber.setAdult(personByStationNumber.getAdult()+1);
             }
         }
+        System.out.print("\nPerson : "+personByStationNumber.toString());
         return personByStationNumber;
     }
 
@@ -29,6 +30,7 @@ public class FirestationService {
         Firestations newFirestation = new Firestations(address,station);
         firestationsList.add(newFirestation);
         DataAccess.loadJsonObject().setFirestations(firestationsList);
+        System.out.print("\n"+newFirestation);
         return "new Firestation add";
     }
 
@@ -38,6 +40,7 @@ public class FirestationService {
         firestationsList.add(newFirestation);
         DataAccess.loadJsonObject().setFirestations(firestationsList);
         firestationDelete(newFirestation.getAddress(),firestationsList.stream().filter(firestation -> firestation.getAddress().equals(address) && firestation.getStation()!=station).findFirst().orElse(null).getStation());
+        System.out.print("\n"+newFirestation);
         return "new Firestation ";
     }
 
@@ -48,6 +51,7 @@ public class FirestationService {
         if(index != -1){
             firestationsList.remove(index);
             DataAccess.loadJsonObject().setFirestations(firestationsList);
+            System.out.print("\n"+findFirestation);
             return "Firestation Deleted";
         }else{
             return address + "-" + station +" not found";

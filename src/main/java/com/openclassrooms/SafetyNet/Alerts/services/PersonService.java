@@ -14,6 +14,7 @@ public class PersonService {
         List<Person> personList = DataAccess.loadJsonObject().getPersons();
         personList.add(newPerson);
         DataAccess.loadJsonObject().setPersons(personList);
+        System.out.print("\n"+newPerson);
         return "new Person add";
     }
 
@@ -22,6 +23,7 @@ public class PersonService {
         List<Person> personList = DataAccess.loadJsonObject().getPersons();
         personList.add(newPerson);
         DataAccess.loadJsonObject().setPersons(personList);
+        System.out.print("\n"+newPerson);
         return "new Person add";
     }
 
@@ -32,6 +34,7 @@ public class PersonService {
         if(index != -1){
             personList.remove(index);
             DataAccess.loadJsonObject().setPersons(personList);
+            System.out.print("\n"+findPerson);
             return "person Deleted";
         }else{
             return firstName + "-" + lastName +" not found";

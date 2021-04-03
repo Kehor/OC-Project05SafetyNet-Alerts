@@ -25,5 +25,7 @@ public class ChildAlertService {
         }
         childByAddress.setChild(child);
         childByAddress.setAdult(adult);
+        System.out.print("\nAdult : "+childByAddress.getAdult());
+        System.out.print("\nChild : "+childByAddress.getChild());
     }
 }

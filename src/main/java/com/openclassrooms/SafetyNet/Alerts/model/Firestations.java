@@ -29,4 +29,12 @@ public class Firestations {
     public void setStation(int station) {
         this.station = station;
     }
+
+    @Override
+    public String toString() {
+        return "Firestations{" +
+                "address='" + address + '\'' +
+                ", station=" + station +
+                '}';
+    }
 }

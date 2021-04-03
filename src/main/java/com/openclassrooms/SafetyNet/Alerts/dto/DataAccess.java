@@ -106,6 +106,7 @@ public class DataAccess {
                     return getAgeFromBirthdate(medicalrecords.getBirthdate());
                 }
             }
+            return 0;
         }
         return 0;
     }
@@ -118,7 +119,6 @@ public class DataAccess {
                     result.add(person);
                 }
             }
-            System.out.println(result);
             return result;
         }
         return result;
@@ -132,8 +132,9 @@ public class DataAccess {
                     return medicalrecords;
                 }
             }
+            return new MedicalRecords();
         }
-        return null;
+        return new MedicalRecords();
     }
 
     public static Person getPersonByFirstAndLastName(String firstName, String lastName) {
@@ -144,11 +145,17 @@ public class DataAccess {
                 .orElse(null);
     }
 
-    public static Person getPersonMailByCity(String city) {
-        return getPersons()
-                .stream()
-                .filter(person -> person.getCity().equals(city))
-                .findAny()
-                .orElse(null);
+    public static List<Person> getPersonByCity(String city) {
+        List<Person> personList = new ArrayList<>();
+        int i = 0;
+        while (getPersons().size() >= i && (i == 0 || personList.get(personList.size()-1) != null)) {
+            i++;
+            personList.add(getPersons()
+                    .stream()
+                    .filter(person -> person.getCity().equals(city) && personList.contains(person) != true)
+                    .findAny()
+                    .orElse(null));
+        }
+        return personList;
     }
 }
